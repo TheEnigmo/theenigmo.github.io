@@ -1,0 +1,345 @@
+[gd_scene load_steps=10 format=3 uid="uid://bew3rgoy5ujr7"]
+
+[ext_resource type="Script" uid="uid://d4f2vsg7ivy6v" path="res://scripts/unit_inspect_screen.gd" id="1_8v21g"]
+[ext_resource type="FontFile" uid="uid://c4ud8v1htrxye" path="res://assets/fonts/BebasNeue-Regular.otf" id="2_v2klg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8v21g"]
+bg_color = Color(0.8667131, 0.8444036, 0.7102264, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.48662663, 0.35655797, 0.11222275, 1)
+corner_radius_top_left = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v2klg"]
+bg_color = Color(0.5019608, 0.5019608, 0.5019608, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rbe3q"]
+content_margin_left = 5.0
+content_margin_top = 3.0
+content_margin_right = 5.0
+content_margin_bottom = 3.0
+bg_color = Color(0, 0, 0, 0.27450982)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m470i"]
+bg_color = Color(0.15686275, 0.15686275, 0.15686275, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b0j70"]
+bg_color = Color(0, 0.5137255, 0.24313726, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uv6q0"]
+bg_color = Color(0.27419978, 0.27419978, 0.27419978, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lnfcl"]
+bg_color = Color(1, 0.84, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[node name="UnitInspectScreen" type="CanvasLayer"]
+script = ExtResource("1_8v21g")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(400, 0)
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -400.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8v21g")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="MainLayout" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TopSection" type="HBoxContainer" parent="Panel/MarginContainer/MainLayout"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="Portrait" type="Panel" parent="Panel/MarginContainer/MainLayout/TopSection"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_v2klg")
+
+[node name="TopInfo" type="VBoxContainer" parent="Panel/MarginContainer/MainLayout/TopSection"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="NameLabel" type="Label" parent="Panel/MarginContainer/MainLayout/TopSection/TopInfo"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 9
+theme_override_fonts/font = ExtResource("2_v2klg")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_rbe3q")
+horizontal_alignment = 1
+
+[node name="ClassLevelLabel" type="Label" parent="Panel/MarginContainer/MainLayout/TopSection/TopInfo"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 9
+theme_override_fonts/font = ExtResource("2_v2klg")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rbe3q")
+horizontal_alignment = 1
+
+[node name="HPContainer" type="HBoxContainer" parent="Panel/MarginContainer/MainLayout/TopSection/TopInfo"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HPTextLabel" type="Label" parent="Panel/MarginContainer/MainLayout/TopSection/TopInfo/HPContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 9
+theme_override_fonts/font = ExtResource("2_v2klg")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_rbe3q")
+text = "HP:"
+
+[node name="HPBar" type="ProgressBar" parent="Panel/MarginContainer/MainLayout/TopSection/TopInfo/HPContainer"]
+custom_minimum_size = Vector2(120, 20)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_v2klg")
+theme_override_styles/background = SubResource("StyleBoxFlat_m470i")
+theme_override_styles/fill = SubResource("StyleBoxFlat_b0j70")
+
+[node name="XPContainer" type="HBoxContainer" parent="Panel/MarginContainer/MainLayout/TopSection/TopInfo"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="XPTextLabel" type="Label" parent="Panel/MarginContainer/MainLayout/TopSection/TopInfo/XPContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 9
+theme_override_fonts/font = ExtResource("2_v2klg")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_rbe3q")
+text = "XP:"
+
+[node name="XPBar" type="ProgressBar" parent="Panel/MarginContainer/MainLayout/TopSection/TopInfo/XPContainer"]
+custom_minimum_size = Vector2(120, 20)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_v2klg")
+theme_override_styles/background = SubResource("StyleBoxFlat_uv6q0")
+theme_override_styles/fill = SubResource("StyleBoxFlat_lnfcl")
+
+[node name="HSeparator" type="HSeparator" parent="Panel/MarginContainer/MainLayout"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="StatsSection" type="HBoxContainer" parent="Panel/MarginContainer/MainLayout"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="StatsLeft" type="VBoxContainer" parent="Panel/MarginContainer/MainLayout/StatsSection"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="HPStatLabel" type="Label" parent="Panel/MarginContainer/MainLayout/StatsSection/StatsLeft"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 9
+theme_override_fonts/font = ExtResource("2_v2klg")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_rbe3q")
+text = "HP: X"
+horizontal_alignment = 1
+
+[node name="ATKStatLabel" type="Label" parent="Panel/MarginContainer/MainLayout/StatsSection/StatsLeft"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 9
+theme_override_fonts/font = ExtResource("2_v2klg")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_rbe3q")
+text = "ATK: X"
+horizontal_alignment = 1
+
+[node name="DEFStatLabel" type="Label" parent="Panel/MarginContainer/MainLayout/StatsSection/StatsLeft"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 9
+theme_override_fonts/font = ExtResource("2_v2klg")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_rbe3q")
+text = "DEF: X"
+horizontal_alignment = 1
+
+[node name="SPDStatLabel" type="Label" parent="Panel/MarginContainer/MainLayout/StatsSection/StatsLeft"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 9
+theme_override_fonts/font = ExtResource("2_v2klg")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_rbe3q")
+text = "SPD: X"
+horizontal_alignment = 1
+
+[node name="StatsRight" type="VBoxContainer" parent="Panel/MarginContainer/MainLayout/StatsSection"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="INTStatLabel" type="Label" parent="Panel/MarginContainer/MainLayout/StatsSection/StatsRight"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 9
+theme_override_fonts/font = ExtResource("2_v2klg")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_rbe3q")
+text = "INT: X"
+horizontal_alignment = 1
+
+[node name="RESStatLabel" type="Label" parent="Panel/MarginContainer/MainLayout/StatsSection/StatsRight"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 9
+theme_override_fonts/font = ExtResource("2_v2klg")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_rbe3q")
+text = "RES: X"
+horizontal_alignment = 1
+
+[node name="LUKStatLabel" type="Label" parent="Panel/MarginContainer/MainLayout/StatsSection/StatsRight"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 9
+theme_override_fonts/font = ExtResource("2_v2klg")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_rbe3q")
+text = "LUK: X"
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="Panel/MarginContainer/MainLayout"]
+layout_mode = 2
+
+[node name="EquipmentSection" type="VBoxContainer" parent="Panel/MarginContainer/MainLayout"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="EquipSlot1Label" type="Label" parent="Panel/MarginContainer/MainLayout/EquipmentSection"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 9
+theme_override_fonts/font = ExtResource("2_v2klg")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rbe3q")
+text = "[EQUIPMENT SLOT 1]"
+horizontal_alignment = 1
+
+[node name="EquipSlot2Label" type="Label" parent="Panel/MarginContainer/MainLayout/EquipmentSection"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 9
+theme_override_fonts/font = ExtResource("2_v2klg")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rbe3q")
+text = "[EQUIPMENT SLOT 2]"
+horizontal_alignment = 1
+
+[node name="HSeparator3" type="HSeparator" parent="Panel/MarginContainer/MainLayout"]
+layout_mode = 2
+
+[node name="ItemSection" type="VBoxContainer" parent="Panel/MarginContainer/MainLayout"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ItemSlot1Label" type="Label" parent="Panel/MarginContainer/MainLayout/ItemSection"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 9
+theme_override_fonts/font = ExtResource("2_v2klg")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rbe3q")
+text = "[ITEM SLOT 1]"
+horizontal_alignment = 1
+
+[node name="ItemSlot2Label" type="Label" parent="Panel/MarginContainer/MainLayout/ItemSection"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 9
+theme_override_fonts/font = ExtResource("2_v2klg")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rbe3q")
+text = "[ITEM SLOT 2]"
+horizontal_alignment = 1
