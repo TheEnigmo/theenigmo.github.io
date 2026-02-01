@@ -1,0 +1,121 @@
+[gd_scene load_steps=5 format=3 uid="uid://bn50ssd2tqsc5"]
+
+[ext_resource type="Script" uid="uid://0q0t1pmtf348" path="res://scripts/combat_ui.gd" id="1_md4h7"]
+[ext_resource type="FontFile" uid="uid://c4ud8v1htrxye" path="res://assets/fonts/BebasNeue-Regular.otf" id="1_pxi7o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pxi7o"]
+bg_color = Color(0.004221259, 0.17517406, 0.7783617, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_md4h7"]
+bg_color = Color(0.71926206, 0.0012381756, 0.0006790286, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[node name="CombatUi" type="CanvasLayer"]
+script = ExtResource("1_md4h7")
+
+[node name="FriendlyPanel" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(250, 80)
+offset_left = 250.0
+offset_top = 500.0
+offset_right = 500.0
+offset_bottom = 580.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pxi7o")
+
+[node name="MarginContainer" type="MarginContainer" parent="FriendlyPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FriendlyPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="FriendlyNameLabel" type="Label" parent="FriendlyPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_pxi7o")
+
+[node name="FriendlyHPContainer" type="HBoxContainer" parent="FriendlyPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="FriendlyHPLabel" type="Label" parent="FriendlyPanel/MarginContainer/VBoxContainer/FriendlyHPContainer"]
+layout_mode = 2
+text = "HP:"
+
+[node name="FriendlyHPBar" type="ProgressBar" parent="FriendlyPanel/MarginContainer/VBoxContainer/FriendlyHPContainer"]
+custom_minimum_size = Vector2(150, 20)
+layout_mode = 2
+show_percentage = false
+
+[node name="FriendlyXPContainer" type="HBoxContainer" parent="FriendlyPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="FriendlyXPLabel" type="Label" parent="FriendlyPanel/MarginContainer/VBoxContainer/FriendlyXPContainer"]
+layout_mode = 2
+text = "XP:"
+
+[node name="FriendlyXPBar" type="ProgressBar" parent="FriendlyPanel/MarginContainer/VBoxContainer/FriendlyXPContainer"]
+custom_minimum_size = Vector2(150, 20)
+layout_mode = 2
+show_percentage = false
+
+[node name="EnemyPanel" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(250, 80)
+offset_left = 600.0
+offset_top = 500.0
+offset_right = 850.0
+offset_bottom = 580.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_md4h7")
+
+[node name="MarginContainer" type="MarginContainer" parent="EnemyPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EnemyPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="EnemyNameLabel" type="Label" parent="EnemyPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_pxi7o")
+
+[node name="EnemyHPContainer" type="HBoxContainer" parent="EnemyPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="EnemyHPLabel" type="Label" parent="EnemyPanel/MarginContainer/VBoxContainer/EnemyHPContainer"]
+layout_mode = 2
+text = "HP:"
+
+[node name="EnemyHPBar" type="ProgressBar" parent="EnemyPanel/MarginContainer/VBoxContainer/EnemyHPContainer"]
+custom_minimum_size = Vector2(150, 20)
+layout_mode = 2
+show_percentage = false
+
+[node name="EnemyXPContainer" type="HBoxContainer" parent="EnemyPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="EnemyXPLabel" type="Label" parent="EnemyPanel/MarginContainer/VBoxContainer/EnemyXPContainer"]
+layout_mode = 2
+text = "XP:"
+
+[node name="EnemyXPBar" type="ProgressBar" parent="EnemyPanel/MarginContainer/VBoxContainer/EnemyXPContainer"]
+custom_minimum_size = Vector2(150, 20)
+layout_mode = 2
+show_percentage = false
